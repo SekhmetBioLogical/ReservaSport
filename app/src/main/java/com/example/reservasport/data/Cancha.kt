@@ -1,6 +1,4 @@
 package com.example.reservasport.data
-
-
 data class Cancha(
     val id: Int,
     val nombre: String,

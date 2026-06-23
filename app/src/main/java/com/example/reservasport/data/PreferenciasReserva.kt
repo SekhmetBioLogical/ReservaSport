@@ -2,18 +2,27 @@ package com.example.reservasport.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 
 class PreferenciasReserva(context: Context) {
-    // Inicializamos SharedPreferences de forma privada y segura
+    private val TAG = "PreferenciasReserva"
     private val prefs: SharedPreferences = context.getSharedPreferences("ReservaSportPrefs", Context.MODE_PRIVATE)
 
-    // Guarda el estado de una cancha usando su ID único como clave
     fun guardarEstadoCancha(canchaId: Int, estado: String) {
-        prefs.edit().putString("cancha_$canchaId", estado).apply()
+        try {
+            prefs.edit().putString("cancha_$canchaId", estado).apply()
+            Log.d(TAG, "Estado guardado exitosamente para cancha: $canchaId")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error al guardar estado de cancha $canchaId: ${e.message}")
+        }
     }
 
-    // Lee el estado guardado. Si no existe, devuelve el valor inicial por defecto
     fun obtenerEstadoCancha(canchaId: Int, valorPorDefecto: String): String {
-        return prefs.getString("cancha_$canchaId", valorPorDefecto) ?: valorPorDefecto
+        return try {
+            prefs.getString("cancha_$canchaId", valorPorDefecto) ?: valorPorDefecto
+        } catch (e: Exception) {
+            Log.e(TAG, "Error al leer estado de cancha $canchaId, retornando defecto: ${e.message}")
+            valorPorDefecto
+        }
     }
 }
