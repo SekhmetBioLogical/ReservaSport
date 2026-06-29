@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -56,4 +57,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.14")
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 }
