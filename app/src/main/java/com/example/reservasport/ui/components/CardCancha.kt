@@ -20,7 +20,6 @@ fun CardCancha(cancha: Cancha, onCardClick: () -> Unit) {
             .fillMaxWidth()
             .clickable { onCardClick() },
         colors = CardDefaults.cardColors(
-            // CORRECCIÓN: Si está reservada, usamos primaryContainer (un morado claro de fondo)
             containerColor = if (esReservada) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant
         )
     ) {
@@ -31,7 +30,7 @@ fun CardCancha(cancha: Cancha, onCardClick: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                // Título de la cancha
+                // tutilo de la cancha
                 Text(
                     text = cancha.nombre,
                     fontSize = 18.sp,
@@ -40,7 +39,7 @@ fun CardCancha(cancha: Cancha, onCardClick: () -> Unit) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
 
-                // Disciplina deportiva
+                // nombre del deporte
                 Text(
                     text = "Disciplina: ${cancha.deporte}",
                     fontSize = 14.sp,
@@ -48,17 +47,16 @@ fun CardCancha(cancha: Cancha, onCardClick: () -> Unit) {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Estado de disponibilidad (Texto crítico de la reserva)
+                // estado de disponibilidad
                 Text(
                     text = cancha.disponibilidad,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
-                    // CORRECCIÓN: Usamos onPrimaryContainer para que el texto sea un morado oscuro sobre el fondo claro
                     color = if (esReservada) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.primary
                 )
             }
 
-            // Indicador de Estado (Chip)
+            // indicador del estado
             SuggestionChip(
                 onClick = { },
                 label = {
@@ -69,7 +67,6 @@ fun CardCancha(cancha: Cancha, onCardClick: () -> Unit) {
                     )
                 },
                 colors = SuggestionChipDefaults.suggestionChipColors(
-                    // CORRECCIÓN: Contraste explícito para el chip interno
                     containerColor = if (esReservada) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
                     labelColor = if (esReservada) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface
                 )

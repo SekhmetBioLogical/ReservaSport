@@ -73,9 +73,9 @@ class ReservaViewModel(private val repository: ReservaRepository) : ViewModel() 
         viewModelScope.launch {
             try {
                 Log.d(TAG, "=== INICIO SIMULACIÓN DE ERROR ===")
-                // simulacion: intentar acceder a un índice invalido
+                // simulacion: intentar acceder a un indice invalido
                 val listaVacia = emptyList<Cancha>()
-                val resultado = listaVacia[0] // esto lanzara IndexOutOfBoundsException
+                val resultado = listaVacia[0]
                 Log.d(TAG, "Este log nunca se ejecuta: $resultado")
             } catch (e: IndexOutOfBoundsException) {
                 Log.e(TAG, "ERROR SIMULADO capturado: ${e.message}")

@@ -21,7 +21,7 @@ import com.example.reservasport.viewmodel.ReservaViewModel
 @Composable
 fun ReservaSportScreen() {
     val context = LocalContext.current
-    // Inicialización manual necesaria para el patrón MVVM
+    // inicializacion manual necesaria para el MVVM
     val repository = remember { ReservaRepository(PreferenciasReserva(context)) }
     val viewModel: ReservaViewModel = viewModel(factory = AppViewModelFactory(repository))
 

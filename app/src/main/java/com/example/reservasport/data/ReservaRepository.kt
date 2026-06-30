@@ -5,7 +5,6 @@ import kotlinx.coroutines.withContext
 
 class ReservaRepository(private val prefs: PreferenciasReserva) {
 
-    // Asegúrate de que este método exista exactamente así:
     suspend fun guardar(canchaId: Int, estado: String) {
         withContext(Dispatchers.IO) {
             prefs.guardarEstadoCancha(canchaId, estado)

@@ -10,7 +10,6 @@ import com.example.reservasport.ui.screens.ReservaSportScreen
 import com.example.reservasport.ui.theme.ReservaSportTheme // <--- Importamos tu tema real
 
 class MainActivity : ComponentActivity() {
-    // ✅ Sin companion object - eliminada referencia estática que causaba memory leak
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
